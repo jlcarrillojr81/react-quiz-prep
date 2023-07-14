@@ -1,7 +1,28 @@
+import { useState, useEffect } from 'react'
+import Loading from './components/Loading'
+import Users from './components/Users'
 
 
 
 function App() {
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const res = await fetch('https://jsonplaceholder.typicode.com/users');
+      const data = await res.json();
+      setUsers(data)
+    }
+    getData();
+  }, [])
+
+  if (users.length === 0) {
+    return <Loading />
+  }
+    return <Users users={users} />
+}
+
   
 
   // Instructions:
@@ -14,11 +35,11 @@ function App() {
 
 
 
-  return (
-    <div className="container">
-      <h1>See instructions commented out in App.jsx!</h1>
-    </div>
-  )
-}
+  // return (
+  //   <div className="container">
+  //     <h1>See instructions commented out in App.jsx!</h1>
+  //   </div>
+  // )
+
 
 export default App

@@ -1,11 +1,48 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0; 
-  padding: 0;
+  padding: 0; 
+  margin: 0;
   box-sizing: border-box;
 }
 
+h1 {
+  padding: 1rem;
+  color: #333;
+}
+
 .container {
-  width: 90vw;
+  border: 1px solid red;
+  padding: 1rem;
+}
+
+.card {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1rem;
+  color: #333;
+  border: 1px solid aqua;
+  margin: 1rem;
+}
+
+.card:hover {
+  cursor: pointer;
+  background: #eee;
+}
+
+.userItem {
+  border: 1px solid aqua;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.flexContainer {
+  width: 80%;
   margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flexContainer > * {  /* this selects any direct children of .flexContainer */
+  flex: 1 0 25%;  /* this allows for 4 items per row */
+  max-width: 25%; /* max-width is used to limit the size of each child when flex basis is larger than max-width */
+  /* add any other properties you want here */
 }
